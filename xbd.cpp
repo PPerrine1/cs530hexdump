@@ -1,40 +1,38 @@
  
 #include <iostream>
-#include <cstdlib>
-#include <cctype>
+#include <cstring>
+#include <sstream>
 #include <fstream>
 using namespace std;
 
-int hex_to_int(char c){
-    int one = (c/16) - 3;
-    int two = c % 16;
-    int res = (one*10) + two;
-    if(res > 9)
-        res--;
-    return res;
-}
-
-int hex_to_ascii(char c, char d){
-    int h = hex_to_int(c) * 16;
-    int l = hex_to_int(d);
-    return h+l;
+void printHexNibble(char* str) {
+    stringstream ss;
+    ss << hex << unsigned(*str);
+    
+    unsigned res;
+    ss >> res;
+    cout << hex << res;
 }
 
 int main(int argc, char* argv[]){
     string input;
+    string lineAscii;
+    string addr = "0000000: ";
     bool binary = false;
     
     if(argc == 3)
         binary = true;
     
-    ifstream file(argv[1+(argc-2)]);
+    ifstream file(argv[(1+(argc-2))]);
     
     while(file.is_open() && file.good() && !file.eof()) {
         getline(file, input);
-        if(!binary){
-            
+        if(!binary) {
+            for(int i=0; i<input.length(); i++) {
+                printHexNibble(&input[i]);
+            }
         }
-        else{
+        else {
             
         }
     
