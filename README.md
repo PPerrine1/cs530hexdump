@@ -1,9 +1,9 @@
-# Assignment #1, XBD
-Names: Rhythm Mecwan & Patrick Perinne
-Class Account: cssc0448, cssc0426
-CS 530, Spring 2019
-Assignment #1, XBD
-README.md
+# Hex Dump
+* Names: Rhythm Mecwan & Patrick Perinne
+* Class Account: cssc0448, cssc0426
+* CS 530, Spring 2019
+* Assignment #1, XBD
+* Filename: README.md
 
 ## File Manifest
 xbd.cpp, xbd.hpp, Makefile, README
