@@ -4,6 +4,7 @@
 #include <sstream>
 #include <fstream>
 #include <iomanip>
+#include <bitset>
 using namespace std;
 
 bool isPrintable(char c) {
@@ -12,6 +13,12 @@ bool isPrintable(char c) {
         return true;
     else
         return false;
+}
+
+bool printValidBinaryNibble(char* str) {
+    std::bitset<8> b(*str);
+    std::cout << b;
+    return isPrintable(*str);
 }
 
 bool printValidHexNibble(char* str) {
@@ -83,10 +90,35 @@ int main(int argc, char* argv[]){
             }
         }
     }
+    else {
+        while(fileCon.is_open() && fileCon.good()) {
+            fileCon.get(input);
+            if(fileCon.eof())
+                break;
+            else {
+                if(ifFirstLine) {
+                    cout << addressFormat(addr) << ": ";
+                    ifFirstLine = false;
+                }
+                else if(addr % 6 == 0) {
+                    cout << lineAscii << endl << addressFormat(addr) << ": ";
+                    lineAscii = "";
+                }
+                
+                if(printValidBinaryNibble(&input))
+                    lineAscii += input;
+                else
+                    lineAscii += ".";
+                
+                addr += 1;
+                cout << " ";
+            }
+        }
+    }
     
     fileCon.close();
-
-    if(addr % 16 != 0) {
+    
+    if(!outBinary && addr % 16 != 0) {
         while(addr % 16 != 0) {
             if(addr % 2 != 0) {
                 cout << "   ";
@@ -98,6 +130,13 @@ int main(int argc, char* argv[]){
             }
         }
         cout << lineAscii << endl;
+    }
+    else if(addr % 6 != 0) {
+       while(addr % 6 != 0) {
+           cout << "         ";
+           addr += 1;
+       }
+       cout << lineAscii << endl;
     }
 }
 
