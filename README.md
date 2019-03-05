@@ -6,7 +6,7 @@
 * Filename: README.md
 
 ## File Manifest
-xbd.cpp, xbd.hpp, Makefile, README
+xbd.cpp (Perrine), xbd.hpp (Perrine), Makefile (Mecwan), README.md (Mecwan)
 
 ## Compile Instructions
 * Navigate to a1 directory containing xbd.
