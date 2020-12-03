@@ -16,12 +16,3 @@ xbd.cpp (Perrine), xbd.hpp (Perrine), Makefile (Mecwan), README.md (Mecwan)
 * Only opens regular file type (binary or text/ASCII)
 * Running xbd with '-b' dumps in binary format
 * must include a file to be read as the last command line arg
-
-## List/Description of novel/significant design decisions
-
-## Extra Features/algorithms/functionality
-
-## List/Description of all known deficiences or bugs
-
-## Lessons Learned
-We learned C++ syntax, how pointers and addresses work in C++, and how to make a makefile.
